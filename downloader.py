@@ -11,7 +11,6 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 print("*** Hello I'm simple program for downloading music from YT ***")
-
 URL = input("Input you're link: \n")
 
 def str_buf_fix(s):
@@ -33,13 +32,11 @@ def tag_edit(id):
             title = json_info['title']
             # EDIT TAG
             audiofile = ID3(f"media_from_yt/{str_buf_fix(title)}.mp3")
-
             try:
                 artist = json_info['artist']
                 album = json_info['album']
                 track = json_info['track']
                 release_year = json_info['release_year']
-
                 audiofile.add(TIT2(encoding=3, text=track))
                 audiofile.add(TALB(encoding=3, text=album))
                 audiofile.add(TPE1(encoding=3, text=artist))
@@ -56,7 +53,6 @@ def tag_edit(id):
                     print("[BAD ATTRIBUTES: 2]", e)
             # SAVE TAG
             audiofile.save()
-
     except Exception as e:
         print('[NO MP3 TAG]', e)
 
@@ -78,10 +74,8 @@ def download_media(URL):
     folder = 'photo/Thumbnails'
     if not os.path.exists(folder):
         os.makedirs(folder)
-
     file_name = ""
     file_id = ""
-
     try: # GETING JSON FILE 
         with yt_dlp.YoutubeDL() as ydl:
             some_var = ydl.sanitize_info(ydl.extract_info(URL, download=False))
