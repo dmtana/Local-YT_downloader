@@ -1,2 +1,2 @@
-# offline_downloader
+# Local YT_downloader
 Portable_downloader
