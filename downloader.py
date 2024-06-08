@@ -12,6 +12,9 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 '''
+python3 -m venv .venv
+source .venv/bin/activate
+
 pip install --upgrade pip
 pip install pillow
 pip install yt-dlp
